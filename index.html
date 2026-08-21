@@ -1,580 +1,735 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Noime Jovy Marie Jabanag | Portfolio</title>
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Noime Jovy Marie Jabanag · Designer & Developer</title>
+  
+  <!-- ===== FAVICON ===== -->
+  <link rel="icon" type="image/png" href="N (3).png" />
+  <link rel="shortcut icon" type="image/png" href="N (3).png" />
+  
+  <!-- Google Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Inter', sans-serif; background: #fefefe; color: #1a1e2b; line-height: 1.5; scroll-behavior: smooth; }
-    .container { max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
-    nav { position: sticky; top: 0; background: rgba(255, 255, 255, 0.92); backdrop-filter: blur(12px); z-index: 100; border-bottom: 1px solid #e9eef3; padding: 1rem 0; }
-    .nav-flex { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
-    .logo { font-weight: 700; font-size: 1.6rem; letter-spacing: -0.02em; background: linear-gradient(135deg, #1f2b3c, #3b4b6e); background-clip: text; -webkit-background-clip: text; color: transparent; }
-    .nav-links { display: flex; gap: 2rem; list-style: none; }
-    .nav-links a { text-decoration: none; font-weight: 500; color: #2c3e4e; transition: color 0.2s; }
-    .nav-links a:hover { color: #2666cf; }
-    .btn { display: inline-block; background: #1f2b3c; color: white; padding: 0.6rem 1.4rem; border-radius: 40px; text-decoration: none; font-weight: 500; transition: all 0.25s; border: none; cursor: pointer; }
-    .btn-outline { background: transparent; border: 1px solid #1f2b3c; color: #1f2b3c; }
-    .btn-outline:hover { background: #1f2b3c; color: white; }
-    .btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,0.05); }
-    .btn-sm { padding: 0.3rem 0.8rem; font-size: 0.8rem; }
-    section { padding: 5rem 0; border-bottom: 1px solid #edf2f7; }
-    .section-title { font-size: 2rem; font-weight: 700; margin-bottom: 2rem; letter-spacing: -0.01em; position: relative; display: inline-block; }
-    .section-title:after { content: ''; position: absolute; bottom: -10px; left: 0; width: 50%; height: 3px; background: #2666cf; border-radius: 4px; }
-    .hero { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 2rem; }
-    .hero-content { flex: 1; }
-    .hero-content h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.2; margin-bottom: 1rem; }
-    .highlight { color: #2666cf; }
-    .hero-content p { font-size: 1.2rem; color: #4a5b6e; max-width: 500px; margin: 1rem 0 1.8rem; }
-    .hero-img { flex: 0.8; text-align: center; }
-    .hero-img img { width: 280px; height: 280px; object-fit: cover; border-radius: 50%; box-shadow: 0 20px 35px -12px rgba(0,0,0,0.1); border: 4px solid white; }
-    .skills-grid { display: flex; flex-wrap: wrap; gap: 2rem; margin-top: 1rem; }
-    .skill-card { background: white; border-radius: 28px; padding: 1.6rem; flex: 1 1 200px; text-align: center; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.03), 0 0 0 1px #f0f2f5; transition: all 0.2s; }
-    .skill-card i { font-size: 2.5rem; color: #2666cf; margin-bottom: 1rem; }
-    .skill-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
-    .skill-card p { font-size: 0.9rem; color: #5e6f8d; }
-    .skill-card:hover { transform: translateY(-5px); box-shadow: 0 20px 30px -12px rgba(0,0,0,0.1); }
-    .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 2rem; }
-    .project-card { background: white; border-radius: 24px; overflow: hidden; transition: all 0.25s; box-shadow: 0 8px 20px rgba(0,0,0,0.02), 0 0 0 1px #edf2f7; display: flex; flex-direction: column; }
-    .project-card:hover { transform: translateY(-6px); box-shadow: 0 20px 35px -12px rgba(0,0,0,0.12); }
-    .project-img { background: #eef2fa; height: 180px; display: flex; align-items: center; justify-content: center; font-size: 4rem; position: relative; cursor: pointer; transition: background 0.2s; }
-    .project-img:hover { background: #e3e9f3; }
-    .project-img .emoji-edit-hint { position: absolute; bottom: 8px; right: 12px; font-size: 0.65rem; color: #7a8ba8; background: rgba(255,255,255,0.85); padding: 2px 10px; border-radius: 20px; opacity: 0; transition: opacity 0.2s; }
-    .project-img:hover .emoji-edit-hint { opacity: 1; }
-    .project-info { padding: 1.5rem; flex: 1; display: flex; flex-direction: column; }
-    .project-info h3 { font-size: 1.4rem; margin-bottom: 0.5rem; cursor: pointer; }
-    .project-info h3:hover { color: #2666cf; }
-    .project-info p { color: #52647a; margin-bottom: 1rem; font-size: 0.95rem; cursor: pointer; }
-    .project-info p:hover { background: #f5f8fc; }
-    .project-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1rem; }
-    .tag { background: #eef3fc; padding: 0.2rem 0.8rem; border-radius: 40px; font-size: 0.75rem; font-weight: 500; color: #1f4f9e; cursor: pointer; transition: background 0.2s; }
-    .tag:hover { background: #dce6f5; }
-    .project-links { display: flex; gap: 0.8rem; flex-wrap: wrap; margin-top: auto; padding-top: 0.8rem; border-top: 1px solid #edf2f7; }
-    .project-link { text-decoration: none; font-weight: 600; color: #2666cf; display: inline-flex; align-items: center; gap: 6px; font-size: 0.9rem; transition: color 0.2s; }
-    .project-link:hover { color: #1a4f9e; text-decoration: underline; }
-    .project-link .fa-external-link-alt { font-size: 0.7rem; }
-    .edit-hint { font-size: 0.75rem; background: #f9fafb; display: inline-block; padding: 0.2rem 0.6rem; border-radius: 20px; margin-left: 1rem; color: #5f7a9e; }
-    .editable { cursor: pointer; transition: background 0.1s; padding: 0 0.1rem; border-radius: 8px; }
-    .editable:hover { background: #fff2df; }
-    .contact-flex { display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; align-items: center; }
-    .contact-info { flex: 1; }
-    .social-links { display: flex; gap: 1.2rem; margin-top: 1rem; }
-    .social-links a { color: #2c3e66; font-size: 1.6rem; transition: color 0.2s; }
-    .social-links a:hover { color: #2666cf; }
-    footer { text-align: center; padding: 2rem; color: #6c7e9e; font-size: 0.85rem; border-top: 1px solid #eef2f8; }
-    .project-actions { display: flex; gap: 0.5rem; margin-top: 0.8rem; flex-wrap: wrap; }
-    .project-actions button { background: transparent; border: 1px solid #e0e6ed; border-radius: 20px; padding: 0.2rem 0.8rem; font-size: 0.7rem; cursor: pointer; transition: all 0.2s; color: #4a5b6e; }
-    .project-actions button:hover { background: #eef3fc; border-color: #2666cf; color: #2666cf; }
-    .project-actions .btn-delete-project { border-color: #fde8e8; color: #b91c1c; }
-    .project-actions .btn-delete-project:hover { background: #fde8e8; border-color: #b91c1c; }
-    @media (max-width: 768px) { .container { padding: 0 1.5rem; } .hero-content h1 { font-size: 2.4rem; } .hero-img img { width: 200px; height: 200px; } .nav-links { gap: 1rem; } section { padding: 3rem 0; } .projects-grid { grid-template-columns: 1fr; } }
+    /* ============================================================
+       CSS — Professional with soft pink/purple & animations
+    ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --bg: #faf5fc;
+      --surface: #ffffff;
+      --text-primary: #2d2a3a;
+      --text-secondary: #5f5478;
+      --text-muted: #8a7a9e;
+      --accent-start: #d9a6d9;
+      --accent-end: #b380c9;
+      --accent-light: #f0e4f5;
+      --border-light: rgba(210, 180, 220, 0.25);
+      --shadow-sm: 0 4px 20px rgba(180, 130, 200, 0.08);
+      --shadow-hover: 0 20px 48px rgba(180, 130, 200, 0.15);
+      --radius-card: 28px;
+      --radius-btn: 60px;
+      --transition: 0.35s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--bg);
+      color: var(--text-primary);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(36px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+    @keyframes pulseGlow {
+      0% { box-shadow: 0 0 0 0 rgba(200, 150, 220, 0.3); }
+      70% { box-shadow: 0 0 0 16px rgba(200, 150, 220, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(200, 150, 220, 0); }
+    }
+    @keyframes slideLine {
+      0% { width: 0; opacity: 0; }
+      100% { width: 60%; opacity: 1; }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(255, 248, 252, 0.82);
+      backdrop-filter: blur(16px) saturate(180%);
+      -webkit-backdrop-filter: blur(16px) saturate(180%);
+      z-index: 100;
+      border-bottom: 1px solid var(--border-light);
+      padding: 0.9rem 0;
+      transition: var(--transition);
+    }
+    nav.scrolled {
+      box-shadow: 0 4px 30px rgba(180, 130, 200, 0.06);
+    }
+
+    .nav-flex {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.5rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      cursor: default;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      color: var(--text-secondary);
+      transition: color 0.3s;
+      position: relative;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+      transition: width 0.3s ease;
+      border-radius: 4px;
+    }
+    .nav-links a:hover {
+      color: var(--text-primary);
+    }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    /* ===== BUTTONS ===== */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.65rem 1.8rem;
+      border-radius: var(--radius-btn);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: var(--transition);
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+      color: #fff;
+      box-shadow: 0 4px 16px rgba(200, 150, 220, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 32px rgba(200, 150, 220, 0.45);
+    }
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--accent-end);
+      color: var(--text-primary);
+    }
+    .btn-outline:hover {
+      background: var(--accent-end);
+      color: #fff;
+      transform: translateY(-3px);
+    }
+    .btn-sm {
+      padding: 0.3rem 1rem;
+      font-size: 0.8rem;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 5.5rem 0;
+      border-bottom: 1px solid var(--border-light);
+    }
+    section:last-of-type {
+      border-bottom: none;
+    }
+
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      margin-bottom: 2.5rem;
+      position: relative;
+      display: inline-block;
+      color: var(--text-primary);
+    }
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      height: 4px;
+      width: 60%;
+      background: linear-gradient(90deg, var(--accent-start), var(--accent-end));
+      border-radius: 4px;
+      animation: slideLine 0.9s ease forwards;
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3rem;
+    }
+    .hero-content {
+      flex: 1 1 400px;
+      animation: fadeUp 0.9s ease both;
+    }
+    .hero-content .badge {
+      display: inline-block;
+      background: var(--accent-light);
+      color: var(--text-secondary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 0.2rem 1rem;
+      border-radius: 40px;
+      margin-bottom: 1rem;
+      letter-spacing: 0.3px;
+    }
+    .hero-content h1 {
+      font-size: 3.6rem;
+      font-weight: 800;
+      line-height: 1.12;
+      margin-bottom: 1.2rem;
+      color: var(--text-primary);
+    }
+    .hero-content h1 .highlight {
+      background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero-content p {
+      font-size: 1.15rem;
+      color: var(--text-secondary);
+      max-width: 480px;
+      margin-bottom: 2rem;
+    }
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .hero-visual {
+      flex: 0 0 280px;
+      text-align: center;
+      animation: float 7s ease-in-out infinite;
+    }
+    .hero-visual .avatar {
+      width: 280px;
+      height: 280px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #fff;
+      box-shadow: 0 24px 48px -12px rgba(180, 130, 200, 0.3);
+      transition: var(--transition);
+      background: var(--accent-light);
+    }
+    .hero-visual .avatar:hover {
+      transform: scale(1.02);
+      box-shadow: 0 32px 64px -12px rgba(180, 130, 200, 0.4);
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1.8rem;
+      margin-top: 0.5rem;
+    }
+    .skill-card {
+      background: var(--surface);
+      padding: 1.8rem 1.2rem;
+      border-radius: var(--radius-card);
+      text-align: center;
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+    }
+    .skill-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-start);
+    }
+    .skill-card i {
+      font-size: 2.4rem;
+      background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.6rem;
+    }
+    .skill-card h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.2rem;
+      color: var(--text-primary);
+    }
+    .skill-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* ===== PROJECTS ===== */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .project-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      overflow: hidden;
+      border: 1px solid var(--border-light);
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+    .project-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-start);
+    }
+    .project-thumb {
+      height: 180px;
+      background: var(--accent-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+      padding: 1.5rem;
+    }
+    .project-thumb img {
+      max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(180, 130, 200, 0.15));
+      transition: var(--transition);
+    }
+    .project-card:hover .project-thumb img {
+      transform: scale(1.05);
+    }
+    .project-card:hover .project-thumb {
+      background: #e8d6f0;
+    }
+
+    .project-info {
+      padding: 1.6rem 1.8rem 1.8rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+    .project-info h3 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.3rem;
+      color: var(--text-primary);
+    }
+    .project-info p {
+      color: var(--text-secondary);
+      font-size: 0.95rem;
+      margin-bottom: 1rem;
+      flex: 1;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+    }
+    .tag {
+      background: var(--accent-light);
+      padding: 0.15rem 0.8rem;
+      border-radius: 40px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      color: #7a5a92;
+    }
+    .project-links {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 0.8rem;
+      border-top: 1px solid var(--border-light);
+    }
+    .project-links a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--accent-end);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: var(--transition);
+    }
+    .project-links a:hover {
+      color: #7a4d94;
+      transform: translateX(4px);
+    }
+
+    /* ===== CONTACT ===== */
+    .contact-wrap {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+      align-items: center;
+    }
+    .contact-info {
+      flex: 1 1 300px;
+    }
+    .contact-info p {
+      color: var(--text-secondary);
+      font-size: 1.05rem;
+      max-width: 420px;
+      margin-bottom: 1.2rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.2rem;
+    }
+    .social-links a {
+      color: var(--text-muted);
+      font-size: 1.6rem;
+      transition: var(--transition);
+    }
+    .social-links a:hover {
+      color: var(--accent-end);
+      transform: translateY(-4px);
+    }
+
+    .contact-card {
+      background: var(--surface);
+      border-radius: var(--radius-card);
+      padding: 2rem 2.5rem;
+      text-align: center;
+      border: 1px solid var(--border-light);
+      flex: 0 0 260px;
+      box-shadow: var(--shadow-sm);
+      transition: var(--transition);
+    }
+    .contact-card:hover {
+      box-shadow: var(--shadow-hover);
+      border-color: var(--accent-start);
+    }
+    .contact-card i {
+      font-size: 2.6rem;
+      background: linear-gradient(135deg, var(--accent-start), var(--accent-end));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: pulseGlow 2.8s infinite;
+    }
+    .contact-card h4 {
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+    .contact-card p {
+      font-size: 0.85rem;
+      color: var(--text-secondary);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--border-light);
+    }
+    footer .heart {
+      color: #e2556b;
+      display: inline-block;
+      animation: pulseGlow 2s infinite;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      .container { padding: 0 1.5rem; }
+      .hero-content h1 { font-size: 2.5rem; }
+      .hero-visual { flex-basis: 200px; }
+      .hero-visual .avatar { width: 200px; height: 200px; }
+      .nav-links { gap: 1.2rem; }
+      section { padding: 3.5rem 0; }
+      .projects-grid { grid-template-columns: 1fr; }
+      .contact-card { flex: 1 1 100%; }
+      .skills-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .hero-actions .btn { width: 100%; justify-content: center; }
+    }
   </style>
 </head>
 <body>
 
-<nav>
-  <div class="container nav-flex">
-    <div class="logo" id="logoText" data-field="logo">Noime Jovy Marie F. Jabanag</div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#works">Works</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
-
-<main>
-  <section id="home">
-    <div class="container hero">
-      <div class="hero-content">
-        <h1>Creative <span class="highlight">Designer</span> & <br> Frontend Developer</h1>
-        <p id="heroBio" class="editable" data-field="bio">Building thoughtful digital experiences with code and creativity. Based in Philippines, working globally.</p>
-        <a href="#works" class="btn">View projects <i class="fas fa-arrow-right"></i></a>
-        <a href="#contact" class="btn btn-outline" style="margin-left: 1rem;">Let's talk</a>
-      </div>
-      <div class="hero-img">
-        <img id="profileImg" src="N.png" alt="profile avatar" style="object-fit: cover;">
-        <div style="font-size: 0.7rem; margin-top: 8px; color:#8a99b4;">(click image to change)</div>
-      </div>
+  <!-- ===== NAV ===== -->
+  <nav id="navbar">
+    <div class="container nav-flex">
+      <div class="logo">Noime Jovy Marie Jabanag</div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#works">Works</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </div>
-  </section>
+  </nav>
 
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title">My Skills & Tools</h2>
-      <div class="skills-grid" id="skillsGrid"></div>
-      <div style="margin-top: 1.5rem; text-align: right;">
-        <button id="addSkillBtn" class="btn" style="background:#eef3fc; color:#1f2b3c;"><i class="fas fa-plus"></i> Add new skill</button>
-      </div>
-      <p class="edit-hint"><i class="fas fa-pen"></i> Click on any skill name or description to edit them directly.</p>
-    </div>
-  </section>
-
-  <section id="works">
-    <div class="container">
-      <h2 class="section-title">Featured Projects</h2>
-      <div class="projects-grid" id="projectsGrid"></div>
-      <div style="margin-top: 2rem; display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-        <button id="addProjectBtn" class="btn"><i class="fas fa-plus"></i> Add new project</button>
-        <button id="resetDemoBtn" class="btn btn-outline"><i class="fas fa-undo-alt"></i> Reset demo data</button>
-      </div>
-      <p class="edit-hint" style="display: block; text-align: center; margin-top: 1rem;"><i class="fas fa-pen"></i> Click on project title, description, tags, emoji or links to edit inline. Changes save automatically.</p>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="container contact-flex">
-      <div class="contact-info">
-        <h2 class="section-title" style="margin-bottom: 1rem;">Let's Connect</h2>
-        <p id="contactText" class="editable" data-field="contactText">Interested in collaboration? Feel free to reach out for freelance or full-time opportunities.</p>
-        <div class="social-links">
-          <a href="https://github.com/mariejab" id="githubLink" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i></a>
-          <a href="https://www.linkedin.com/in/noime-jabanag-a47b55363" id="linkedinLink" target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-          <a href="mailto:njabanag@gmail.com" id="emailLink"><i class="fas fa-envelope"></i></a>
-        </div>
-        <div style="margin-top: 1rem;">
-          <button id="editSocialBtns" class="btn-outline btn" style="padding: 0.3rem 1rem; font-size:0.8rem;"><i class="fas fa-link"></i> Edit social links</button>
-        </div>
-      </div>
-      <div style="flex:1; background:#f8fafd; border-radius: 2rem; padding: 1.5rem; text-align:center;">
-        <i class="fas fa-paintbrush" style="font-size: 2.5rem; color:#2666cf;"></i>
-        <p style="margin-top:0.8rem;">Available for freelance & collaborations</p>
-      </div>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <p id="footerNote">© 2026 Noime Jovy Marie Jabanag — Built with ♡ for creatives. Click any text to customize!</p>
-</footer>
-
-<script>
-  // ============================================================
-  // DATA
-  // ============================================================
-  let skillsData = [
-    { id: "s1", icon: "fab fa-figma", name: "Figma", desc: "UI/UX design, prototyping" },
-    { id: "s2", icon: "fab fa-react", name: "React", desc: "Hooks, context, performance" },
-    { id: "s3", icon: "fab fa-js", name: "JavaScript", desc: "ES6+, TypeScript basics" },
-    { id: "s4", icon: "fas fa-palette", name: "Visual Design", desc: "Branding, color theory" }
-  ];
-
-  let projectsData = [
-    { 
-      id: "p1", 
-      title: "Bloom Finance", 
-      desc: "Financial dashboard for personal investors", 
-      tags: ["Vue", "D3", "Node"], 
-      iconEmoji: "📊",
-      demoUrl: "https://bloom-finance-demo.netlify.app",
-      githubUrl: "https://github.com/mariejab/bloom-finance",
-      liveUrl: "https://bloom-finance.netlify.app"
-    },
-    { 
-      id: "p2", 
-      title: "Studio Mono", 
-      desc: "Creative agency portfolio & custom CMS", 
-      tags: ["GSAP", "WordPress", "PHP"], 
-      iconEmoji: "🎨",
-      demoUrl: "https://studio-mono-demo.netlify.app",
-      githubUrl: "https://github.com/mariejab/studio-mono",
-      liveUrl: "https://studiomono.com"
-    },
-    { 
-      id: "p3", 
-      title: "JanCasRob Apartment Smart Contract", 
-      desc: "A blockchain-based smart contract system for apartment monitoring", 
-      tags: ["Design", "Development", "Blockchain"], 
-      iconEmoji: "🏢",
-      demoUrl: "https://jancasrob-demo.netlify.app",
-      githubUrl: "https://github.com/mariejab/jancasrob-blockchain",
-      liveUrl: "https://jancasrob.com"
-    }
-  ];
-
-  // ============================================================
-  // STORAGE HELPERS
-  // ============================================================
-  function loadFromStorage() {
-    const storedSkills = localStorage.getItem("portfolio_skills");
-    const storedProjects = localStorage.getItem("portfolio_projects");
-    if (storedSkills) skillsData = JSON.parse(storedSkills);
-    if (storedProjects) projectsData = JSON.parse(storedProjects);
-  }
-
-  function persistData() {
-    localStorage.setItem("portfolio_skills", JSON.stringify(skillsData));
-    localStorage.setItem("portfolio_projects", JSON.stringify(projectsData));
-  }
-
-  function escapeHtml(str) { 
-    if (!str) return '';
-    return str.replace(/[&<>]/g, function(m){
-      if(m==='&') return '&amp;'; 
-      if(m==='<') return '&lt;'; 
-      if(m==='>') return '&gt;'; 
-      return m;
-    }); 
-  }
-
-  // ============================================================
-  // RENDER SKILLS
-  // ============================================================
-  function renderSkills() {
-    const grid = document.getElementById("skillsGrid");
-    if (!grid) return;
-    grid.innerHTML = "";
-    skillsData.forEach(skill => {
-      const card = document.createElement("div");
-      card.className = "skill-card";
-      card.setAttribute("data-id", skill.id);
-      card.innerHTML = `
-        <i class="${skill.icon}"></i>
-        <h3 class="editable-skill-name" data-id="${skill.id}" data-field="name" contenteditable="true">${escapeHtml(skill.name)}</h3>
-        <p class="editable-skill-desc" data-id="${skill.id}" data-field="desc" contenteditable="true">${escapeHtml(skill.desc)}</p>
-        <button class="delete-skill" data-id="${skill.id}" style="background:none; border:none; color:#b91c1c; font-size:0.8rem; margin-top:8px; cursor:pointer;">
-          <i class="fas fa-trash-alt"></i> remove
-        </button>
-      `;
-      grid.appendChild(card);
-    });
-
-    document.querySelectorAll('.editable-skill-name, .editable-skill-desc').forEach(el => {
-      el.addEventListener('blur', function() {
-        const id = this.getAttribute('data-id');
-        const field = this.getAttribute('data-field');
-        const newValue = this.innerText.trim();
-        const skill = skillsData.find(s => s.id === id);
-        if (skill && field) { 
-          skill[field] = newValue; 
-          persistData(); 
-        }
-      });
-      el.addEventListener('keypress', (e) => { if(e.key === 'Enter') { e.preventDefault(); this.blur(); } });
-    });
-
-    document.querySelectorAll('.delete-skill').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const id = btn.getAttribute('data-id');
-        skillsData = skillsData.filter(s => s.id !== id);
-        persistData();
-        renderSkills();
-      });
-    });
-  }
-
-  // ============================================================
-  // RENDER PROJECTS
-  // ============================================================
-  function renderProjects() {
-    const container = document.getElementById("projectsGrid");
-    if (!container) return;
-    container.innerHTML = "";
-    
-    projectsData.forEach(proj => {
-      const card = document.createElement("div");
-      card.className = "project-card";
-      card.setAttribute("data-pid", proj.id);
-      
-      card.innerHTML = `
-        <div class="project-img" data-pid="${proj.id}" onclick="editEmoji('${proj.id}')">
-          ${proj.iconEmoji || '📁'}
-          <span class="emoji-edit-hint"><i class="fas fa-pen"></i> click to change</span>
-        </div>
-        <div class="project-info">
-          <h3 class="editable-proj-title" data-pid="${proj.id}" contenteditable="true">${escapeHtml(proj.title)}</h3>
-          <p class="editable-proj-desc" data-pid="${proj.id}" contenteditable="true">${escapeHtml(proj.desc)}</p>
-          <div class="project-tags" data-pid="${proj.id}">
-            ${proj.tags.map((tag, idx) => 
-              `<span class="tag editable-tag" data-tagidx="${idx}" data-pid="${proj.id}" contenteditable="true">${escapeHtml(tag)}</span>`
-            ).join('')}
-            <button class="add-tag-btn" data-pid="${proj.id}" style="background:transparent; border:1px dashed #9aaec2; border-radius:40px; font-size:0.7rem; padding:2px 8px; cursor:pointer;">+ tag</button>
-          </div>
-          <div class="project-links">
-            ${proj.demoUrl ? `<a href="${proj.demoUrl}" target="_blank" rel="noopener noreferrer" class="project-link editable-link" data-pid="${proj.id}" data-linktype="demoUrl" contenteditable="false">🔗 Demo <i class="fas fa-external-link-alt"></i></a>` : ''}
-            ${proj.githubUrl ? `<a href="${proj.githubUrl}" target="_blank" rel="noopener noreferrer" class="project-link editable-link" data-pid="${proj.id}" data-linktype="githubUrl" contenteditable="false"><i class="fab fa-github"></i> Code <i class="fas fa-external-link-alt"></i></a>` : ''}
-            ${proj.liveUrl ? `<a href="${proj.liveUrl}" target="_blank" rel="noopener noreferrer" class="project-link editable-link" data-pid="${proj.id}" data-linktype="liveUrl" contenteditable="false">🌐 Live <i class="fas fa-external-link-alt"></i></a>` : ''}
-          </div>
-          <div class="project-actions">
-            <button class="add-link-btn" data-pid="${proj.id}" style="border-color: #2666cf; color: #2666cf;">
-              <i class="fas fa-plus"></i> Add link
-            </button>
-            <button class="btn-delete-project" data-pid="${proj.id}">
-              <i class="fas fa-trash"></i> Remove
-            </button>
+  <!-- ===== MAIN ===== -->
+  <main>
+    <!-- HERO -->
+    <section id="home">
+      <div class="container hero">
+        <div class="hero-content">
+          <span class="badge"><i class="fas fa-sparkles"></i> Available for freelance</span>
+          <h1>Creative <span class="highlight">Designer</span> &amp; <br />Frontend Developer</h1>
+          <p>Building thoughtful digital experiences with code and creativity. Based in Philippines, working globally.</p>
+          <div class="hero-actions">
+            <a href="#works" class="btn btn-primary">View projects <i class="fas fa-arrow-right"></i></a>
+            <a href="#contact" class="btn btn-outline">Let's talk</a>
           </div>
         </div>
-      `;
-      container.appendChild(card);
-    });
+        <div class="hero-visual">
+          <!-- ===== PROFILE PICTURE ===== -->
+          <img class="avatar" src="N (3).png" alt="Noime Jovy" />
+        </div>
+      </div>
+    </section>
 
-    // Title & description editing
-    document.querySelectorAll('.editable-proj-title, .editable-proj-desc').forEach(el => {
-      el.addEventListener('blur', function() {
-        const pid = this.getAttribute('data-pid');
-        const project = projectsData.find(p => p.id === pid);
-        if (!project) return;
-        if (this.classList.contains('editable-proj-title')) project.title = this.innerText.trim();
-        if (this.classList.contains('editable-proj-desc')) project.desc = this.innerText.trim();
-        persistData();
-      });
-      el.addEventListener('keypress', (e) => { if(e.key === 'Enter') { e.preventDefault(); this.blur(); } });
-    });
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="container">
+        <h2 class="section-title">My Skills &amp; Tools</h2>
+        <div class="skills-grid animate-on-scroll">
+          <div class="skill-card">
+            <i class="fas fa-palette"></i>
+            <h3>Visual Design</h3>
+            <p>Branding, color theory, layout</p>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-wordpress"></i>
+            <h3>WordPress</h3>
+            <p>Custom themes, ACF, WooCommerce</p>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-html5"></i>
+            <h3>HTML</h3>
+            <p>Semantic, accessible markup</p>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-css3-alt"></i>
+            <h3>CSS</h3>
+            <p>Flexbox, Grid, responsive design</p>
+          </div>
+          <div class="skill-card">
+            <i class="fab fa-js"></i>
+            <h3>JavaScript</h3>
+            <p>ES6+, DOM, fetch, async/await</p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-    // Tag editing
-    document.querySelectorAll('.editable-tag').forEach(tagEl => {
-      tagEl.addEventListener('blur', function() {
-        const pid = this.getAttribute('data-pid');
-        const tagIdx = parseInt(this.getAttribute('data-tagidx'));
-        const project = projectsData.find(p => p.id === pid);
-        if (project && project.tags[tagIdx] !== undefined) { 
-          project.tags[tagIdx] = this.innerText.trim(); 
-          persistData(); 
+    <!-- PROJECTS -->
+    <section id="works">
+      <div class="container">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid animate-on-scroll">
+          <!-- Project 1: Pat & Chloe Inventory -->
+          <div class="project-card">
+            <div class="project-thumb">
+              <img src="patchloe.png" alt="Pat & Chloe Inventory logo" />
+            </div>
+            <div class="project-info">
+              <h3>Pat &amp; Chloe Inventory</h3>
+              <p>Real-time inventory management with low-stock alerts and live product tracking.</p>
+              <div class="project-tags">
+                <span class="tag">React</span>
+                <span class="tag">Firebase</span>
+                <span class="tag">Real-time</span>
+              </div>
+              <div class="project-links">
+                <a href="https://mariejab.github.io/patandchloeinventory-system/" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                <a href="https://github.com/mariejab/patandchloeinventory-system" target="_blank"><i class="fab fa-github"></i> Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: JanCasRob Apartment -->
+          <div class="project-card">
+            <div class="project-thumb">
+              <img src="jancasrob.png" alt="JanCasRob Apartment logo" />
+            </div>
+            <div class="project-info">
+              <h3>JanCasRob Apartment</h3>
+              <p>Apartment management system with room rates, amenities, and tenant info.</p>
+              <div class="project-tags">
+                <span class="tag">PHP</span>
+                <span class="tag">MySQL</span>
+                <span class="tag">Bootstrap</span>
+              </div>
+              <div class="project-links">
+                <a href="https://jancasrob.infinityfreeapp.com/apartment.php" target="_blank"><i class="fas fa-external-link-alt"></i> Live</a>
+                <a href="https://github.com/mariejab/jancasrob-apartment" target="_blank"><i class="fab fa-github"></i> Code</a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Studio Mono -->
+          <div class="project-card">
+            <div class="project-thumb">
+              <i class="fas fa-paintbrush" style="font-size: 4rem; color: var(--accent-end);"></i>
+            </div>
+            <div class="project-info">
+              <h3>Studio Mono</h3>
+              <p>Creative agency portfolio &amp; custom CMS with GSAP animations.</p>
+              <div class="project-tags">
+                <span class="tag">GSAP</span>
+                <span class="tag">WordPress</span>
+                <span class="tag">PHP</span>
+              </div>
+              <div class="project-links">
+                <a href="https://studio-mono-demo.netlify.app" target="_blank"><i class="fas fa-external-link-alt"></i> Demo</a>
+                <a href="https://github.com/mariejab/studio-mono" target="_blank"><i class="fab fa-github"></i> Code</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="container contact-wrap">
+        <div class="contact-info animate-on-scroll">
+          <h2 class="section-title" style="margin-bottom:0.5rem;">Let's Connect</h2>
+          <p>Interested in collaboration? Feel free to reach out for freelance or full‑time opportunities.</p>
+          <div class="social-links">
+            <a href="https://github.com/mariejab" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/noime-jabanag-a47b55363" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="https://www.facebook.com/duebee.knowmemarie/" target="_blank" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+            <a href="mailto:njabanag@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        <div class="contact-card animate-on-scroll">
+          <i class="fas fa-paintbrush"></i>
+          <h4>Available for work</h4>
+          <p>open to collaborations &amp; projects</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>&copy; 2026 Noime Jovy Marie Jabanag — Built with <span class="heart">♥</span> for creatives</p>
+  </footer>
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // ============================================================
+    //  SCROLL ANIMATIONS (Intersection Observer)
+    // ============================================================
+    const animateElements = document.querySelectorAll('.animate-on-scroll');
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
         }
       });
-      tagEl.addEventListener('keypress', (e) => { if(e.key === 'Enter') { e.preventDefault(); this.blur(); } });
+    }, {
+      threshold: 0.15,
+      rootMargin: '0px 0px -30px 0px'
     });
 
-    // Link editing - make links clickable and editable
-    document.querySelectorAll('.editable-link').forEach(linkEl => {
-      linkEl.addEventListener('dblclick', function(e) {
-        e.preventDefault();
-        const pid = this.getAttribute('data-pid');
-        const linkType = this.getAttribute('data-linktype');
-        const project = projectsData.find(p => p.id === pid);
-        if (!project) return;
-        const currentUrl = project[linkType] || '';
-        const newUrl = prompt(`Edit ${linkType} URL:`, currentUrl);
-        if (newUrl !== null) {
-          project[linkType] = newUrl.trim();
-          persistData();
-          renderProjects();
-        }
-      });
-    });
+    animateElements.forEach(el => observer.observe(el));
 
-    // Add tag
-    document.querySelectorAll('.add-tag-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const pid = btn.getAttribute('data-pid');
-        const project = projectsData.find(p => p.id === pid);
-        if (project) {
-          let newTag = prompt("Enter new tag name", "new skill");
-          if (newTag && newTag.trim()) { 
-            project.tags.push(newTag.trim()); 
-            persistData(); 
-            renderProjects(); 
-          }
-        }
-      });
-    });
-
-    // Add link
-    document.querySelectorAll('.add-link-btn').forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const pid = btn.getAttribute('data-pid');
-        const project = projectsData.find(p => p.id === pid);
-        if (!project) return;
-        
-        const linkTypes = [
-          { key: 'demoUrl', label: 'Demo URL' },
-          { key: 'githubUrl', label: 'GitHub URL' },
-          { key: 'liveUrl', label: 'Live URL' }
-        ];
-        
-        const options = linkTypes.map((t, i) => `${i+1}. ${t.label}${project[t.key] ? ' ✅' : ''}`).join('\n');
-        const choice = prompt(`Select link type to add/edit:\n${options}\n\nEnter number (1-3):`, "1");
-        if (!choice) return;
-        
-        const idx = parseInt(choice) - 1;
-        if (idx >= 0 && idx < linkTypes.length) {
-          const linkType = linkTypes[idx];
-          const currentUrl = project[linkType.key] || '';
-          const newUrl = prompt(`Enter ${linkType.label}:`, currentUrl);
-          if (newUrl !== null) {
-            project[linkType.key] = newUrl.trim();
-            persistData();
-            renderProjects();
-          }
-        }
-      });
-    });
-
-    // Delete project
-    document.querySelectorAll('.btn-delete-project').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const pid = btn.getAttribute('data-pid');
-        if (confirm('Delete this project?')) {
-          projectsData = projectsData.filter(p => p.id !== pid);
-          persistData();
-          renderProjects();
-        }
-      });
-    });
-  }
-
-  // ============================================================
-  // EDIT EMOJI FUNCTION
-  // ============================================================
-  window.editEmoji = function(pid) {
-    const project = projectsData.find(p => p.id === pid);
-    if (!project) return;
-    const newEmoji = prompt("Enter emoji for this project:", project.iconEmoji || '📁');
-    if (newEmoji !== null && newEmoji.trim()) {
-      project.iconEmoji = newEmoji.trim();
-      persistData();
-      renderProjects();
-    }
-  };
-
-  // ============================================================
-  // ADD / RESET FUNCTIONS
-  // ============================================================
-  function addNewSkill() { 
-    const newId = "s" + Date.now(); 
-    skillsData.push({ id: newId, icon: "fas fa-code", name: "New Skill", desc: "Describe your skill" }); 
-    persistData(); 
-    renderSkills(); 
-  }
-
-  function addNewProject() { 
-    const newId = "p" + Date.now(); 
-    projectsData.push({ 
-      id: newId, 
-      title: "New project", 
-      desc: "Describe your amazing work", 
-      tags: ["design", "development"], 
-      iconEmoji: "✨",
-      demoUrl: "",
-      githubUrl: "",
-      liveUrl: ""
-    }); 
-    persistData(); 
-    renderProjects(); 
-  }
-  
-  function resetDemo() {
-    skillsData = [
-      { id: "s1", icon: "fab fa-figma", name: "Figma", desc: "UI/UX design, prototyping" },
-      { id: "s2", icon: "fab fa-react", name: "React", desc: "Hooks, context, performance" },
-      { id: "s3", icon: "fab fa-js", name: "JavaScript", desc: "ES6+, TypeScript basics" },
-      { id: "s4", icon: "fas fa-palette", name: "Visual Design", desc: "Branding, color theory" }
-    ];
-    projectsData = [
-      { 
-        id: "p1", 
-        title: "Bloom Finance", 
-        desc: "Financial dashboard for personal investors", 
-        tags: ["Vue", "D3", "Node"], 
-        iconEmoji: "📊",
-        demoUrl: "https://bloom-finance-demo.netlify.app",
-        githubUrl: "https://github.com/mariejab/bloom-finance",
-        liveUrl: "https://bloom-finance.netlify.app"
-      },
-      { 
-        id: "p2", 
-        title: "Studio Mono", 
-        desc: "Creative agency portfolio & custom CMS", 
-        tags: ["GSAP", "WordPress", "PHP"], 
-        iconEmoji: "🎨",
-        demoUrl: "https://studio-mono-demo.netlify.app",
-        githubUrl: "https://github.com/mariejab/studio-mono",
-        liveUrl: "https://studiomono.com"
-      },
-      { 
-        id: "p3", 
-        title: "JanCasRob Apartment Smart Contract", 
-        desc: "A blockchain-based smart contract system for apartment monitoring", 
-        tags: ["Design", "Development", "Blockchain"], 
-        iconEmoji: "🏢",
-        demoUrl: "https://jancasrob-demo.netlify.app",
-        githubUrl: "https://github.com/mariejab/jancasrob-blockchain",
-        liveUrl: "https://jancasrob.com"
+    // ============================================================
+    //  NAVBAR SHADOW ON SCROLL
+    // ============================================================
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 20) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
       }
-    ];
-    persistData();
-    renderSkills();
-    renderProjects();
-    document.getElementById("heroBio") && (document.getElementById("heroBio").innerText = "Building thoughtful digital experiences with code and creativity. Based in Philippines, working globally.");
-    document.getElementById("logoText") && (document.getElementById("logoText").innerText = "Noime Jovy Marie F. Jabanag");
-    document.getElementById("footerNote") && (document.getElementById("footerNote").innerHTML = "© 2026 Noime Jovy Marie Jabanag — Built with ♡ for creatives. Click any text to customize!");
-  }
-
-  // ============================================================
-  // SETUP EDITABLE ELEMENTS
-  // ============================================================
-  function setupGlobalEditable() {
-    const bioEl = document.getElementById("heroBio");
-    if(bioEl) { 
-      bioEl.setAttribute("contenteditable", "true"); 
-      bioEl.addEventListener("blur", () => { localStorage.setItem("customBio", bioEl.innerText); }); 
-      const saved = localStorage.getItem("customBio"); 
-      if(saved) bioEl.innerText = saved; 
-    }
-    
-    const logoEl = document.getElementById("logoText");
-    if(logoEl){ 
-      logoEl.setAttribute("contenteditable", "true"); 
-      logoEl.addEventListener("blur", () => { localStorage.setItem("customLogo", logoEl.innerText); }); 
-      const savedLogo = localStorage.getItem("customLogo"); 
-      if(savedLogo) logoEl.innerText = savedLogo; 
-    }
-    
-    const footerEl = document.getElementById("footerNote");
-    if(footerEl){ 
-      footerEl.setAttribute("contenteditable", "true"); 
-      footerEl.addEventListener("blur", () => { localStorage.setItem("customFooter", footerEl.innerHTML); }); 
-      const savedFoot = localStorage.getItem("customFooter"); 
-      if(savedFoot) footerEl.innerHTML = savedFoot; 
-    }
-    
-    const contactP = document.getElementById("contactText");
-    if(contactP){ 
-      contactP.setAttribute("contenteditable", "true"); 
-      contactP.addEventListener("blur", () => { localStorage.setItem("contactText", contactP.innerText); }); 
-      const savedContact = localStorage.getItem("contactText"); 
-      if(savedContact) contactP.innerText = savedContact; 
-    }
-    
-    const profImg = document.getElementById("profileImg");
-    if(profImg) { 
-      profImg.addEventListener("click", () => { 
-        const newUrl = prompt("Enter image URL (avatar/photo)", profImg.src); 
-        if(newUrl) profImg.src = newUrl; 
-      }); 
-    }
-    
-    // Edit social links
-    document.getElementById("editSocialBtns")?.addEventListener("click", () => {
-      const git = prompt("GitHub URL", "https://github.com/mariejab");
-      const linked = prompt("LinkedIn URL", "https://www.linkedin.com/in/noime-jabanag-a47b55363");
-      const email = prompt("Email address", "njabanag@gmail.com");
-      if(git && document.getElementById("githubLink")) document.getElementById("githubLink").href = git;
-      if(linked && document.getElementById("linkedinLink")) document.getElementById("linkedinLink").href = linked;
-      if(email && document.getElementById("emailLink")) document.getElementById("emailLink").href = `mailto:${email}`;
     });
-  }
 
-  // ============================================================
-  // INIT
-  // ============================================================
-  loadFromStorage();
-  renderSkills();
-  renderProjects();
-  setupGlobalEditable();
-  
-  document.getElementById("addSkillBtn")?.addEventListener("click", addNewSkill);
-  document.getElementById("addProjectBtn")?.addEventListener("click", addNewProject);
-  document.getElementById("resetDemoBtn")?.addEventListener("click", resetDemo);
-</script>
+    // ============================================================
+    //  SMOOTH SCROLL FOR NAV LINKS
+    // ============================================================
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    console.log('✨ Portfolio ready — custom logos added for projects');
+  </script>
 </body>
 </html>
